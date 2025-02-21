@@ -1,0 +1,40 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: ms-loans
+  datasource:
+#    url: jdbc:h2:mem:testdb
+    url: jdbc:h2:file:./data/loans
+    username: sa
+    password: password
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+#      update après avoir lancé quelque fois
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    defer-datasource-initialization: true
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/schema.sql
+      data-locations: classpath:db/data.sql
+#--------------Eureka Server----------------
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
