@@ -1,5 +1,5 @@
 server:
-  port: 8888
+  port: 8071
 spring:
   application:
     name: configserver
@@ -12,3 +12,5 @@ spring:
           password: ${GIT_PASSWORD}
           clone-on-start: true
           default-label: master
+  profiles:
+    active: git
