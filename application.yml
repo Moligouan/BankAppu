@@ -7,10 +7,7 @@ spring:
     config:
       server:
         git:
-          url: https://github.com/Moligouan/BankAppu.git
-          username: ${GIT_USERNAME}
-          password: ${GIT_PASSWORD}
-          clone-on-start: true
-          default-label: master
+          uri: https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Moligouan/BankAppu.git
+
   profiles:
     active: git
